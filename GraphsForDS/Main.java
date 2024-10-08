@@ -54,6 +54,8 @@ public class Main {
             //checks if edge is there
             System.out.println(graph.checkEdge(vA,vC));
             System.out.println(graph.checkEdge(vD,vA));
+
+            graph.printVertices();
         }
     }
 }

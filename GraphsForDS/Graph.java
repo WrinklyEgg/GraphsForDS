@@ -76,6 +76,10 @@ public class Graph{
 
     public void printVertices()
     {
-        
+        for(Vertex v:vList.keySet())
+        {
+            
+            System.out.println(v+" edges: "+);
+        }
     }
 }

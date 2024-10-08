@@ -1,6 +1,36 @@
 package GraphsForDS;
+import java.util.ArrayList;
+Graph graph;
+Vertex start;
+
 
 public class GraphTraveller
 {
+    public GraphTraveller(Graph graph, Vertex start)
+    {
+        this.graph = graph;
+        this.start = start;
+        
+    }
     
+    public String travel()
+    {
+        int numVertices = vList.size();
+        int numTravelled=0;
+        Vertex currentV= start;
+        ArrayList list = graph.vList;
+        while(list.size!=0)
+        {
+            
+        }
+    }
+
+
+
+
+
+
+
+
+
 }

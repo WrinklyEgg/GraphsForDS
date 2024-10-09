@@ -22,5 +22,11 @@ public class Edge {
         return end;
     }
 
+    @Override
+    public String toString()
+    {
+        return end.toString();
+    }
+
    
 }

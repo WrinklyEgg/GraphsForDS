@@ -46,21 +46,16 @@ public class Graph{
     {
         int[][] newGraph = new int[vList.size()][vList.size()];
         graph=newGraph;
-       for(HashMap.Entry<Vertex, Integer> list :vList.entrySet())
-        {
-            graph[list.getValue()][list.getValue()]=1;
-        }
     }
     
     public void addEdge(Edge edge)
     {
-        edgeList.add(edge);
+        //edgeList.add(edge);
         graph[vList.get(edge.getInitial())][vList.get(edge.getEnd())]=1;
         graph[vList.get(edge.getInitial())][vList.get(edge.getEnd())]=1;
         graph[vList.get(edge.getEnd())][vList.get(edge.getInitial())]=1;
         graph[vList.get(edge.getEnd())][vList.get(edge.getInitial())]=1;
     }
-
 
     public boolean checkEdge(Vertex initial, Vertex end)
     {
@@ -73,13 +68,29 @@ public class Graph{
             return false;
         }
     }
+    
+    public ArrayList<Vertex> getAdjVertices(Vertex v)
+    {
+        
+            ArrayList <Vertex> numEdges=new ArrayList<>(); 
+         
+            for(int i=0;i<vList.size();i++)
+            {
+                if(graph[vList.get(v)][i] == 1)
+                {
+                    
+                   numEdges.add(vertexList.get(i));
+                }
+            }    
+            return numEdges;
+        
+    }
 
     public void printVertices()
     {
         for(Vertex v:vList.keySet())
         {
-            
-            System.out.println(v+" edges: "+);
+            System.out.println(getAdjVertices(v));
         }
     }
 }

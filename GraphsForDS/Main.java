@@ -8,6 +8,7 @@ public class Main {
             //instantiating base graph
             int numVertices=6;
             Graph graph = new Graph(numVertices);
+            
             //making vertices and storing them to graph object
             Vertex vA = new Vertex("A");
             Vertex vB = new Vertex("B");
@@ -49,6 +50,7 @@ public class Main {
             graph.addEdge(edgeFG);
             graph.addEdge(edgeBC);
             graph.addEdge(edgeDE);
+            //graph.addEdge(new Edge(vD,vF));
 
 
             GraphTraveller gTraveller = new GraphTraveller(graph,vA);
@@ -60,11 +62,11 @@ public class Main {
             //System.out.println(graph.checkEdge(vA,vC));
             //System.out.println(graph.checkEdge(vD,vA));
             System.out.println();
-            graph.printVertices();
+            //graph.printVertices();
             System.out.println("---------");
-           System.out.println(gTraveller.travel());
-            System.out.println(graph.getAdjVertices(vE));
-
+           System.out.println("List of visited vertices: "+ gTraveller.travel());
+            //System.out.println(graph.getAdjVertices(vE));
+            System.out.println("The path of travel: "+ gTraveller.getTravelPath());
         }
     }
 }

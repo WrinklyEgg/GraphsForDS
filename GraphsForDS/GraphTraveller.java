@@ -1,5 +1,5 @@
 package GraphsForDS;
-import ArrayIndexOutOfBoundsException;
+import java.lang.ArrayIndexOutOfBoundsException;
 import java.util.ArrayList;
 
 public class GraphTraveller
@@ -16,15 +16,16 @@ public class GraphTraveller
         visitedList= new ArrayList<>();
     }
     
-    public String travel()
+    public ArrayList<Vertex> travel()
     {
 
         queue.add(start);
         //visitedList.add(start);
-        System.out.println(queue);
+        //System.out.println("queue: "+queue);
        
-        while(visitedList.size()!=graph.vList.size())
+        while(visitedList.size()!=graph.vList.size()&&queue.size()!=0)
         {
+            System.out.println("queue: "+queue);
             //queue.remove(start);
             for(int i =0;i<graph.getAdjVertices(start).size();i++)
             {
@@ -34,7 +35,7 @@ public class GraphTraveller
                     
                 }
             }
-            System.out.println("queue: "+queue);
+            //System.out.println("queue: "+queue);
             if(!visitedList.contains(start))
             {
                 visitedList.add(start);
@@ -44,7 +45,11 @@ public class GraphTraveller
             queue.remove(start);
             try
             {
-                start=queue.get(0);
+                if(queue.size()!=0)
+                {
+                    start=queue.get(0);
+                }
+                
             }
             catch(ArrayIndexOutOfBoundsException e)
             {
@@ -52,11 +57,21 @@ public class GraphTraveller
             }            
             //System.out.println(queue);
         }
-        return visitedList.toString();
+        return visitedList;
         
        
     }
-   
+
+    public String getTravelPath()
+    {
+        ArrayList<Vertex> list = travel();
+        String path="";
+        for(Vertex v:list)
+        {
+            path+=v+"->";
+        }
+        return path.substring(0,path.length()-2);
+    }
 
 
 
